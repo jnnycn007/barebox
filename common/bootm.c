@@ -318,14 +318,13 @@ bootm_load_initrd(struct image_data *data, unsigned long load_address)
 	} else if (data->os_fit) {
 		res = bootm_load_fit_initrd(data, load_address);
 		type = filetype_fit;
-
 	}
 
 	if (IS_ERR_OR_NULL(res))
 		return res;
 
 	pr_info("Loaded initrd from %s %s%s%s to %pa-%pa\n",
-		file_type_to_string(type), initrd,
+		file_type_to_string(type), initrd ?: "",
 		initrd_part ? "@" : "", initrd_part ?: "",
 		&res->start, &res->end);
 
