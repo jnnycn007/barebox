@@ -21,6 +21,7 @@ RUN apt-get update && apt-get upgrade && apt-get install -y --no-install-recomme
 	libc6-i386 \
 	libgit2-dev \
 	libguestfs-tools \
+	genisoimage \
 	lz4 \
 	librsvg2-bin \
 	libseccomp-dev \
