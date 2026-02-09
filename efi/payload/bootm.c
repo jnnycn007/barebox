@@ -161,7 +161,7 @@ static int efi_load_ramdisk(struct image_data *data, void **initrd)
 	return 0;
 
 free_mem:
-	free(initrd);
+	free(initrd_mem);
 
 	return ret;
 }
