@@ -10,7 +10,7 @@ LABEL Description="This image is for building and testing barebox inside a conta
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Update and install things from apt now
-RUN apt-get update && apt-get upgrade && apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
 	bison \
 	build-essential \
 	coreutils \
@@ -64,8 +64,12 @@ RUN apt-get update && apt-get upgrade && apt-get install -y --no-install-recomme
 ENV GCC_VERSION=15.2.0
 ENV LLVM_VERSION=20
 
-RUN apt-get install -y --no-install-recommends lsb-release gnupg \
+RUN apt-get update && apt-get install -y --no-install-recommends lsb-release gnupg \
 	&& wget https://apt.llvm.org/llvm.sh \
+	&& mkdir -p /etc/crypto-policies/back-ends/ \
+	&& sed 's/\(sha1\.second_preimage_resistance = \)2026-02-01/\12026-06-01/' \
+	    < /usr/share/apt/default-sequoia.config \
+	    > /etc/crypto-policies/back-ends/apt-sequoia.config \
 	&& chmod +x llvm.sh && ./llvm.sh ${LLVM_VERSION} \
 	&& apt-get remove -y lsb-release gnupg \
 	&& apt-get autoremove -y --purge \
