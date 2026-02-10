@@ -103,7 +103,7 @@ ENV CROSS_COMPILE_powerpc=/opt/gcc-${GCC_VERSION}-nolibc/powerpc-linux/bin/power
 ENV CROSS_COMPILE_riscv=/opt/gcc-${GCC_VERSION}-nolibc/riscv64-linux/bin/riscv64-linux-
 ENV CROSS_COMPILE_kvx=/opt/gcc-kalray-kvx-v5.2.0/bin/kvx-elf-
 
-ENV CROSS_COMPILE_llvm=-${LLVM_VERSION}
+ENV LLVM_SUFFIX=-${LLVM_VERSION}
 # Workaround for https://github.com/llvm/llvm-project/issues/112458
 RUN ln -Ts /usr/lib/llvm-${LLVM_VERSION}/lib/clang/${LLVM_VERSION}/lib/linux/ \
            /usr/lib/llvm-${LLVM_VERSION}/lib/clang/${LLVM_VERSION}/lib/x86_64-pc-linux-gnu
