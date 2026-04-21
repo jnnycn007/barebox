@@ -32,7 +32,7 @@ Mails sent to the barebox mailing list are archived on
 `lore.kernel.org <https://lore.kernel.org/barebox/>`_.
 
 There's also an IRC channel, which is
-`bridged to Matrix  <https://app.element.io/#/room/#barebox:matrix.org>`_:
+`bridged to Matrix  <https://matrix.to/#/#barebox:matrix.org>`_:
 #barebox on Libera Chat.
 
 .. _feedback:
